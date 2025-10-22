@@ -2,14 +2,16 @@
 
 **Simple Mac Screenshot Tool**
 
-A minimal, sovereign screenshot utility for macOS that captures screenshots and saves them with timestamps to a predefined folder.
+A minimal, sovereign screenshot utility for macOS that captures screenshots and saves them with timestamps to user-selected folders.
 
 ## Features
 
+- **Two-mode workflow**: Set folder once, take many screenshots
 - Interactive screenshot capture (select area on screen)
 - Auto-saves with timestamp: `screenshot-YYYYMMDD-HHMMSS.png`
+- Custom folder selection via native macOS dialog
 - Zero dependencies (pure Python 3 + Mac built-ins)
-- Simple, focused, fast
+- Perfect for documenting slides, tutorials, or remote work
 - Foundation for future AI preprocessing
 
 ## Requirements
@@ -52,39 +54,76 @@ python3 --version
 
 ## Usage
 
-### Basic Usage
+### Two-Mode Workflow
+
+**macshot** uses a two-mode workflow for efficient screenshot capture:
+
+#### Mode 1: Set Folder (once per session)
 
 ```bash
-# Using uv (recommended - auto-manages Python version)
-uv run macshot.py
-
-# Or direct Python (requires Python 3.12+ installed)
-python3 macshot.py
+# Set destination folder via macOS folder picker
+uv run macshot.py --set-folder
 ```
 
-The script will:
-1. Prompt you to select an area on screen
-2. Save the screenshot to `screenshots/` folder
-3. Print the saved file path
+This opens a native macOS folder selection dialog. The selected folder is saved for future screenshots.
 
-**Cancel**: Press `ESC` during selection to cancel
+#### Mode 2: Take Screenshot (repeat as needed)
+
+```bash
+# Take screenshot to previously selected folder
+uv run macshot.py
+```
+
+Takes a single screenshot with interactive area selection and saves it to the folder you set in Mode 1.
+
+---
+
+### Typical Workflow Example
+
+```bash
+# 1. Set folder once (e.g., for Athora work screenshots)
+uv run macshot.py --set-folder
+> [Select: ~/projects/athora/screenshots]
+
+# 2. Take multiple screenshots (repeat as needed)
+uv run macshot.py  # Screenshot 1
+uv run macshot.py  # Screenshot 2
+uv run macshot.py  # Screenshot 3
+# ... continue as needed
+
+# 3. Change folder when switching context (e.g., to Bitvocation)
+uv run macshot.py --set-folder
+> [Select: ~/projects/bitvocation/screenshots]
+
+# 4. Take more screenshots to new location
+uv run macshot.py  # Screenshot in new folder
+```
+
+**Cancel**: Press `ESC` during screenshot selection to cancel
 
 **Note**: `uv run` automatically manages the Python version specified in `.python-version` (3.12), downloading it if needed.
 
-### Keyboard Shortcut (Recommended)
+---
 
-For the best experience, bind `macshot.py` to a keyboard shortcut using Mac's **Shortcuts app**.
+### Keyboard Shortcuts (Highly Recommended)
 
-See: [docs/mac-shortcuts-setup.md](docs/mac-shortcuts-setup.md) for detailed instructions.
+For maximum efficiency, set up **two keyboard shortcuts**:
+
+1. **Set Folder**: `Ctrl+Cmd+Shift+S` (use occasionally)
+2. **Take Screenshot**: `Ctrl+Cmd+S` (use frequently)
+
+See: [docs/mac-shortcuts-setup.md](docs/mac-shortcuts-setup.md) for detailed setup instructions.
 
 ## Output
 
-Screenshots are saved to:
+Screenshots are saved to your selected folder with timestamp filenames:
 ```
-macshot/screenshots/screenshot-YYYYMMDD-HHMMSS.png
+[your-selected-folder]/screenshot-YYYYMMDD-HHMMSS.png
 ```
 
 Example: `screenshot-20251022-103045.png`
+
+The selected folder path is stored in `~/.macshot_folder` and persists between sessions.
 
 ## Project Structure
 
@@ -101,20 +140,12 @@ macshot/
 
 ## Use Cases
 
-- Quick documentation capture for work (remote environments, etc.)
-- Visual note-taking
-- Bug reporting
-- Tutorial/guide creation
-- Reference image collection
-
-## Future Extensions
-
-Planned enhancements (not implemented yet):
-- Custom output folder configuration
-- AI-powered screenshot preprocessing
-- Multiple format support (PNG, JPG, PDF)
-- Annotation capabilities
-- OCR integration
+- **Documenting presentations/slides**: Set folder once, capture many slides
+- **Remote work screenshots**: Capture Windows/RDP environments efficiently
+- **Tutorial/guide creation**: Organize screenshots by topic/section
+- **Bug reporting**: Quick visual documentation
+- **Visual note-taking**: Timestamped reference images
+- **Multi-project workflows**: Switch folders between different contexts
 
 ## Philosophy
 

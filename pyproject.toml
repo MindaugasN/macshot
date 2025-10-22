@@ -1,0 +1,23 @@
+[project]
+name = "macshot"
+version = "0.1.0"
+description = "Simple Mac screenshot tool with timestamp organization"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = []
+license = {text = "MIT"}
+authors = [
+    {name = "Your Name", email = "your.email@example.com"}
+]
+keywords = ["screenshot", "mac", "macos", "productivity", "sovereignty"]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/macshot"
+Repository = "https://github.com/yourusername/macshot"
+
+[project.scripts]
+macshot = "macshot:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
