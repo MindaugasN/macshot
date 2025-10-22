@@ -8,7 +8,7 @@ A minimal, sovereign screenshot utility for macOS that captures screenshots and 
 
 - **Two-mode workflow**: Set folder once, take many screenshots
 - Interactive screenshot capture (select area on screen)
-- Auto-saves with timestamp: `screenshot-YYYYMMDD-HHMMSS.png`
+- Auto-saves with timestamp: `YYYYMMDD-HHMMSS.png`
 - Custom folder selection via native macOS dialog
 - Zero dependencies (pure Python 3 + Mac built-ins)
 - Perfect for documenting slides, tutorials, or remote work
@@ -116,12 +116,12 @@ See: [docs/mac-shortcuts-setup.md](docs/mac-shortcuts-setup.md) for detailed set
 
 ## Output
 
-Screenshots are saved to your selected folder with timestamp filenames:
+Screenshots are saved to your selected folder with timestamp-only filenames:
 ```
-[your-selected-folder]/screenshot-YYYYMMDD-HHMMSS.png
+[your-selected-folder]/YYYYMMDD-HHMMSS.png
 ```
 
-Example: `screenshot-20251022-103045.png`
+Example: `20251022-103045.png`
 
 The selected folder path is stored in `~/.macshot_folder` and persists between sessions.
 

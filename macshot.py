@@ -100,7 +100,7 @@ def take_screenshot_mode():
 
     # Generate timestamp filename
     timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
-    filename = f"screenshot-{timestamp}.png"
+    filename = f"{timestamp}.png"
     filepath = output_dir / filename
 
     try:
