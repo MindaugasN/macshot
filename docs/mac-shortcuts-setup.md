@@ -30,7 +30,7 @@ How to set up **two keyboard shortcuts** for `macshot` using macOS Shortcuts app
 3. Paste this command:
 
 ```bash
-cd /Users/main/dev/projects/sovereign-data/macshot && /Users/main/.local/bin/uv run macshot.py --set-folder
+cd /Users/main/dev/projects/sovereign/macshot && /Users/main/.local/bin/uv run macshot.py --set-folder
 ```
 
 **Important**: Replace paths with your actual installation:
@@ -60,7 +60,7 @@ cd /Users/main/dev/projects/sovereign-data/macshot && /Users/main/.local/bin/uv 
 3. Paste this command:
 
 ```bash
-cd /Users/main/dev/projects/sovereign-data/macshot && /Users/main/.local/bin/uv run macshot.py
+cd /Users/main/dev/projects/sovereign/macshot && /Users/main/.local/bin/uv run macshot.py
 ```
 
 **Note**: Same paths as Shortcut 1, but **without** `--set-folder` flag
